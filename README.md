@@ -27,9 +27,9 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
 ## Production
 
-You can view the production version of this project at [https://ecom-dusky-psi.vercel.app/](https://ecom-dusky-psi.vercel.app/).
+You can view the production version of this project at [`https://ecom-dusky-psi.vercel.app/`](https://ecom-dusky-psi.vercel.app/).
 ````
