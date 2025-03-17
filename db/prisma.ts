@@ -1,6 +1,7 @@
 import { Pool, neonConfig } from '@neondatabase/serverless';
 import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
+import Decimal from 'decimal.js';
 import ws from 'ws';
 
 // Sets up WebSocket connections, which enables Neon to use WebSocket communication.
@@ -18,12 +19,12 @@ export const prisma = new PrismaClient({ adapter }).$extends({
   result: {
     product: {
       price: {
-        compute(product) {
+        compute(product: { price: Decimal }): string {
           return product.price.toString();
         },
       },
       rating: {
-        compute(product) {
+        compute(product: { rating: Decimal }): string {
           return product.rating.toString();
         },
       },
