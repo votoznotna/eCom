@@ -19,3 +19,14 @@ npm i bcrypt-ts-edge
 npx tsx ./db/seed
 import Decimal from 'decimal.js'
 npx prisma studio
+
+npm install next-auth@beta --legacy-peer-deps
+npm i @auth/prisma-adapter // generates NEXTAUTH_SECRET
+
+https://next-auth.js.org/configuration/options
+
+openssl rand -base64 32
+
+npx shadcn@latest add label input
+
+antonzotov@example.com
