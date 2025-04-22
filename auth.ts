@@ -5,6 +5,12 @@ import { prisma } from '@/db/prisma';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { compare } from 'bcrypt-ts-edge';
 
+declare module 'next-auth' {
+  interface User {
+    role?: string;
+  }
+}
+
 export const config = {
   pages: {
     signIn: '/sign-in',
@@ -53,6 +59,7 @@ export const config = {
       },
     }),
   ],
+
   callbacks: {
     // ...authConfig.callbacks,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,7 +76,11 @@ export const config = {
 
       return session;
     },
-    async jwt({ token, user, trigger, session }: any) {
+    async jwt({
+      token,
+      user,
+      // trigger, session
+    }) {
       // Assign user fields to token
       if (user) {
         // token.id = user.id;
@@ -122,3 +133,4 @@ export const config = {
 } satisfies NextAuthConfig;
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
+export const runtime = 'nodejs';

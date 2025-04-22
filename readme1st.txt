@@ -30,3 +30,8 @@ openssl rand -base64 32
 npx shadcn@latest add label input
 
 antonzotov@example.com
+
+npx prisma generate
+npx prisma migrate dev --name add-cart
+
+npx shadcn@latest add toast
