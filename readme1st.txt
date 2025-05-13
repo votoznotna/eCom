@@ -35,3 +35,5 @@ npx prisma generate
 npx prisma migrate dev --name add-cart
 
 npx shadcn@latest add toast
+
+npm i react-hook-form @hookform/resolvers --legacy-peer-deps
