@@ -45,6 +45,8 @@ npx prisma migrate dev --name add-order
 
 https://developer.paypal.com/dashboard/accounts
 vo------a@gmail.com
+seller: Business account
+byuer: Personal account
 
 npm i -D jest ts-jest ts-node @types/jest @types/node dotenv --legacy-peer-deps
 npm init jest@latest

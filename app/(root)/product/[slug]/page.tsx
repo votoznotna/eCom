@@ -59,7 +59,7 @@ const ProductDetailsPage = async (props: {
                   {product.stock > 0 ? (
                     <Badge variant='outline'>In Stock</Badge>
                   ) : (
-                    <Badge variant='destructive'>In Stock</Badge>
+                    <Badge variant='destructive'>Out Of Stock</Badge>
                   )}
                 </div>
                 {product.stock > 0 && (
