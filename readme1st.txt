@@ -37,3 +37,17 @@ npx prisma migrate dev --name add-cart
 npx shadcn@latest add toast
 
 npm i react-hook-form @hookform/resolvers --legacy-peer-deps
+
+npx shadcn@latest add radio-group
+
+npx prisma ganerate
+npx prisma migrate dev --name add-order
+
+https://developer.paypal.com/dashboard/accounts
+vo------a@gmail.com
+
+npm i -D jest ts-jest ts-node @types/jest @types/node dotenv --legacy-peer-deps
+npm init jest@latest
+npm test
+npm i @paypal/react-paypal-js
+
