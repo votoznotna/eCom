@@ -52,4 +52,4 @@ npm i -D jest ts-jest ts-node @types/jest @types/node dotenv --legacy-peer-deps
 npm init jest@latest
 npm test
 npm i @paypal/react-paypal-js
-
+npm i query-string --legacy-peer-deps
