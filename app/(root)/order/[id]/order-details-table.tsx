@@ -9,13 +9,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-// import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { formatCurrency, formatDateTime, formatId } from '@/lib/utils';
 import { Order } from '@/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-// import { useTransition } from 'react';
+import { useTransition } from 'react';
 import {
   PayPalButtons,
   PayPalScriptProvider,
@@ -24,17 +24,16 @@ import {
 import {
   createPayPalOrder,
   approvePayPalOrder,
-  //   updateOrderToPaidCOD,
-  //   deliverOrder,
+  updateOrderToPaidCOD,
+  deliverOrder,
 } from '@/lib/actions/order.actions';
 // import StripePayment from './stripe-payment';
 
 const OrderDetailsTable = ({
   order,
   paypalClientId,
-}: //   paypalClientId,
-//   isAdmin,
-//   stripeClientSecret,
+  isAdmin,
+}: //   stripeClientSecret,
 {
   order: Omit<Order, 'paymentResult'>;
   paypalClientId: string;
@@ -93,52 +92,52 @@ const OrderDetailsTable = ({
   };
 
   // Button to mark order as paid
-  //   const MarkAsPaidButton = () => {
-  //     const [isPending, startTransition] = useTransition();
-  //     const { toast } = useToast();
+  const MarkAsPaidButton = () => {
+    const [isPending, startTransition] = useTransition();
+    const { toast } = useToast();
 
-  //     return (
-  //       <Button
-  //         type='button'
-  //         disabled={isPending}
-  //         onClick={() =>
-  //           startTransition(async () => {
-  //             const res = await updateOrderToPaidCOD(order.id);
-  //             toast({
-  //               variant: res.success ? 'default' : 'destructive',
-  //               description: res.message,
-  //             });
-  //           })
-  //         }
-  //       >
-  //         {isPending ? 'processing...' : 'Mark As Paid'}
-  //       </Button>
-  //     );
-  //   };
+    return (
+      <Button
+        type='button'
+        disabled={isPending}
+        onClick={() =>
+          startTransition(async () => {
+            const res = await updateOrderToPaidCOD(order.id);
+            toast({
+              variant: res.success ? 'default' : 'destructive',
+              description: res.message,
+            });
+          })
+        }
+      >
+        {isPending ? 'processing...' : 'Mark As Paid'}
+      </Button>
+    );
+  };
 
   // Button to mark order as delivered
-  //   const MarkAsDeliveredButton = () => {
-  //     const [isPending, startTransition] = useTransition();
-  //     const { toast } = useToast();
+  const MarkAsDeliveredButton = () => {
+    const [isPending, startTransition] = useTransition();
+    const { toast } = useToast();
 
-  //     return (
-  //       <Button
-  //         type='button'
-  //         disabled={isPending}
-  //         onClick={() =>
-  //           startTransition(async () => {
-  //             const res = await deliverOrder(order.id);
-  //             toast({
-  //               variant: res.success ? 'default' : 'destructive',
-  //               description: res.message,
-  //             });
-  //           })
-  //         }
-  //       >
-  //         {isPending ? 'processing...' : 'Mark As Delivered'}
-  //       </Button>
-  //     );
-  //   };
+    return (
+      <Button
+        type='button'
+        disabled={isPending}
+        onClick={() =>
+          startTransition(async () => {
+            const res = await deliverOrder(order.id);
+            toast({
+              variant: res.success ? 'default' : 'destructive',
+              description: res.message,
+            });
+          })
+        }
+      >
+        {isPending ? 'processing...' : 'Mark As Delivered'}
+      </Button>
+    );
+  };
 
   return (
     <>
@@ -259,10 +258,10 @@ const OrderDetailsTable = ({
               )} */}
 
               {/* Cash On Delivery */}
-              {/* {isAdmin && !isPaid && paymentMethod === 'CashOnDelivery' && (
+              {isAdmin && !isPaid && paymentMethod === 'CashOnDelivery' && (
                 <MarkAsPaidButton />
-              )} */}
-              {/* {isAdmin && isPaid && !isDelivered && <MarkAsDeliveredButton />} */}
+              )}
+              {isAdmin && isPaid && !isDelivered && <MarkAsDeliveredButton />}
             </CardContent>
           </Card>
         </div>

@@ -53,3 +53,5 @@ npm init jest@latest
 npm test
 npm i @paypal/react-paypal-js
 npm i query-string --legacy-peer-deps
+npm i recharts --legacy-peer-deps
+npx shadcn@latest add alert-dialog dialog
