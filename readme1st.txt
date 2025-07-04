@@ -55,3 +55,9 @@ npm i @paypal/react-paypal-js
 npm i query-string --legacy-peer-deps
 npm i recharts --legacy-peer-deps
 npx shadcn@latest add alert-dialog dialog
+npm i slugify --legacy-peer-deps
+
+npm install uploadthing @uploadthing/react
+https://uploadthing.com/dashboard/votoznotna-personal-team/11wihzo4nr
+
+
