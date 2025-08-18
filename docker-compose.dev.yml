@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ecom_postgres_dev
+    environment:
+      POSTGRES_DB: ecom_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    networks:
+      - ecom_dev_network
+
+  # Next.js Application for Development
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: ecom_app_dev
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ecom_dev
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=dev-secret-key
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    networks:
+      - ecom_dev_network
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    command: sh -c "npx prisma migrate dev && npm run dev"
+
+volumes:
+  postgres_dev_data:
+
+networks:
+  ecom_dev_network:
+    driver: bridge

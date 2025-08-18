@@ -60,4 +60,4 @@ npm i slugify --legacy-peer-deps
 npm install uploadthing @uploadthing/react
 https://uploadthing.com/dashboard/votoznotna-personal-team/11wihzo4nr
 
-
+npx shadcn@latest add select

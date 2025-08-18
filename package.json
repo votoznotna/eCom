@@ -9,7 +9,14 @@
     "lint": "next lint",
     "postinstall": "prisma generate",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "docker:prod": "./docker-setup.sh prod",
+    "docker:dev": "./docker-setup.sh dev",
+    "docker:stop": "./docker-setup.sh stop",
+    "docker:clean": "./docker-setup.sh clean",
+    "docker:logs": "./docker-setup.sh logs",
+    "docker:migrate": "./docker-setup.sh migrate",
+    "docker:seed": "./docker-setup.sh seed"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.8.0",
@@ -23,6 +30,7 @@
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-label": "^2.1.6",
     "@radix-ui/react-radio-group": "^1.3.7",
+    "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-toast": "^1.2.7",
     "@uploadthing/react": "^7.3.2",
