@@ -61,3 +61,6 @@ npm install uploadthing @uploadthing/react
 https://uploadthing.com/dashboard/votoznotna-personal-team/11wihzo4nr
 
 npx shadcn@latest add select
+npx shadcn@latest add drawer
+npx shadcn@latest add carousel
+npm i embla-carousel-autoplay --legacy-peer-deps
