@@ -67,12 +67,20 @@ export async function getAllProducts({
   // Price filter
   const priceFilter: Prisma.ProductWhereInput =
     price && price !== 'all'
-      ? {
-          price: {
-            gte: Number(price.split('-')[0]),
-            lte: Number(price.split('-')[1]),
-          },
-        }
+      ? (() => {
+          const priceParts = price.split('-');
+          const minPrice = Number(priceParts[0]);
+          const maxPrice = priceParts[1]
+            ? Number(priceParts[1])
+            : Number.MAX_SAFE_INTEGER;
+
+          return {
+            price: {
+              gte: isNaN(minPrice) ? 0 : minPrice,
+              lte: isNaN(maxPrice) ? Number.MAX_SAFE_INTEGER : maxPrice,
+            },
+          };
+        })()
       : {};
 
   // Rating filter

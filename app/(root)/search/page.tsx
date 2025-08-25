@@ -102,13 +102,19 @@ const SearchPage = async (props: {
     r?: string;
     pg?: string;
   }) => {
-    const params = { q, category, price, rating, sort, page };
-
-    if (c) params.category = c;
-    if (p) params.price = p;
-    if (s) params.sort = s;
-    if (r) params.rating = r;
-    if (pg) params.page = pg;
+    const params = {
+      q,
+      category,
+      price,
+      rating,
+      sort,
+      page,
+      ...(c && { category: c }),
+      ...(p && { price: p }),
+      ...(s && { sort: s }),
+      ...(r && { rating: r }),
+      ...(pg && { page: pg }),
+    };
 
     return `/search?${new URLSearchParams(params).toString()}`;
   };
