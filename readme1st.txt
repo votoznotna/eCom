@@ -64,3 +64,7 @@ npx shadcn@latest add select
 npx shadcn@latest add drawer
 npx shadcn@latest add carousel
 npm i embla-carousel-autoplay --legacy-peer-deps
+
+// Reviews
+npx prisma generate
+npx prisma migrate dev --name add_review
