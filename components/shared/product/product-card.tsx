@@ -15,7 +15,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             alt={product.name}
             height={300}
             width={300}
-            priority={true}
+            priority
           />
         </Link>
       </CardHeader>
